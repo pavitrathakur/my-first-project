@@ -1,0 +1,60 @@
+header{
+	background-image: url("https://images.unsplash.com/photo-1508766917616-d22f3f1eea14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-size:cover;
+	background-repeat: no-repeat;
+	font-size: 1rem;
+	margin-right:0;
+}
+.container{
+	max-width: 600px;
+	min-height: 600px;
+	display: flex;
+	justify-content:space-between;
+	align-items: flex-start;
+	padding: 0.5rem 1.5rem;
+}
+form{
+  padding: 1rem;
+  color:white;
+  font-weight: bold;
+}
+h3{
+	margin-top: 1rem;
+	color:rgb(176, 120, 6);
+    font-weight: bolder;
+    margin-left: 20px;
+}
+form input[type="text"]{
+	width: 100%;
+	padding: 0.5rem 0.7rem;
+	margin: 0.5rem 0;
+	outline: none;
+}
+#zip{
+	display: flex;
+	margin-top: 0.5rem;
+}
+#zip select{
+	padding: 0.5rem 0.7rem;
+}
+#zip input[type="number"]{
+	
+	margin-left: 5px;	
+}
+input[type="submit"]{
+	padding: 0.7rem .5rem;
+	width: 90%;
+	background: green;
+	color: white;
+	border: none;
+	margin-left: 16px;
+	margin-top: 1.4rem;
+	cursor: pointer;
+}
+@media only screen and (max-width: 770px){
+	.container{
+		flex-direction: column;
+	}
+	
+}
+

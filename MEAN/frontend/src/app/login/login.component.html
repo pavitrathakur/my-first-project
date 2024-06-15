@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login At Cognicaffe</h1>
+          <hr>
+        </div>
+        <form [formGroup]="loginForm">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" formControlName="email">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1">
+            <br>
+            <span class="text-danger" *ngIf="email.errors?.['required'] && (email.touched || email.dirty)">Email is
+              required</span>
+            <span class="text-danger" *ngIf="email.errors?.['email'] && (email.touched || email.dirty)">Email is
+              invalid</span>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" formControName="Password" id="exampleInputPassword1">
+            <span class="text-danger"
+              *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">Password is required</span>
+
+            <span class="text-danger"
+              *ngIf="password.errors?.['minlength'] && (password.touched || password.dirty)">Password Should be atleast
+              8 characters long</span>
+          </div>
+          <button type="submit" class="btn button">Login</button>
+        </form>
+        <br><br>
+        <a routerLink="/signup">Back To Signup</a>
+      </div>
+    </div>
+  </div>
+</div>
