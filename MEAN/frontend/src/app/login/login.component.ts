@@ -1,31 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl, Validators, FormBuilder} from '@angular/forms'
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
-    public loginForm !: FormGroup;
-    constructor(private formbuilder:FormBuilder, private http : HttpClient, private router: Router){}
-    ngOnInit(): void {
-    this.loginForm = new FormGroup({
-   'email': new FormControl('',[Validators.required,Validators.email]),
-   'password': new FormControl('',[Validators.required,Validators.minLength(8)])
-}
+export class LoginComponent implements OnInit {
+  loginForm!:FormGroup;
+  isSubmitted = false;
+  returnUrl = '';
+  constructor(private formBuilder: FormBuilder, private UserService:UserService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
-)}
-get email(): FormControl{
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email:['', [Validators.required,Validators.email]],
+      password:['', Validators.required]
+    });
 
-  return this.loginForm.get('email') as FormControl;
-  
-}
-get password(): FormControl{
+    this.returnUrl=this.activatedRoute.snapshot.queryParams.returnUrl;
 
-  return this.loginForm.get('password') as FormControl;
-  
- }
+
+  }
+
+  get fc(){
+    return this.loginForm.controls;
+  }
+
+  submit(){
+    this.isSubmitted = true;
+    if(this.loginForm.invalid) return;
+
+
+      this.UserService.login({email:this.fc.email.value,
+      password : this.fc.password.value}).subscribe(()=>{
+        this.router.navigateByUrl(this.returnUrl);
+      });
+  }
 }

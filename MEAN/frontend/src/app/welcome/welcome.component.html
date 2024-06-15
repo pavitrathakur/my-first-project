@@ -1,153 +1,26 @@
-<div class="welcome">
-  <div class="wrapper">
-    <div class="image">
-      <div class="row">
-        <div class="col-md-6 xs-10">
-          <h3>Welcome To CogniCaffe.
-          </h3>
-        </div>
-        <div class="col-md-6 xs-10">
-          <h6 class="glow">Here We Offer The Best Taste Of Robusta.</h6>
-        </div>
-      </div>
-    </div>
-    <section class="container-fluid  coffee">
-      <div class="row mb-5  coffee">
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Large/webP/100501.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"> <button routerLink="/cart"> Frappuccino</button> </figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img
-              src='https://media.istockphoto.com/id/1126871442/photo/coffee-cup.jpg?b=1&s=170667a&w=0&k=20&c=tZVnkFRpg68Ufw9aBjHj0HI_ragXVO6idQ2luKY5PE8='
-              alt='missing' routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Espresso</button></figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Small/webP/112540.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Latte</button></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Small/webP/100391.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Cappuccino</button></figcaption>
-          </figure>
-
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img
-              src='https://www.forkinthekitchen.com/wp-content/uploads/2022/06/220518.homemade.caramel.latte-6630-600x600.jpg'
-              alt='missing' routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Caramel</button></figcaption>
-          </figure>
-
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Small/webP/104068.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Chocochip</button></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='../../assets/starbucks.webp' alt='missing' routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Coldcoffee</button></figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Small/webP/100433.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">CaffeAmericano</button></figcaption>
-          </figure>
-        </div>
-        <div class="col-lg-4 xs-12 md-6 item">
-          <figure>
-            <img src='https://starbucks-cdn-01.s3.ap-south-1.amazonaws.com/Items/Small/webP/107933.webp' alt='missing'
-              routerLink="/cart">
-            <figcaption class="caption"><button routerLink="/cart">Hazelnut</button></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-    <div class="container mt-5 mb-5">
-      <h2 class="customers">Testimonials</h2>
-      <div class="row g-2">
-        <div class="col-md-4">
-          <div class="card p-3 text-center px-4">
-            <div class="user-image">
-              <img src="../../assets/daniel.jpg" class="rounded-circle" width="80">
-            </div>
-            <div class="user-content">
-              <h5 class="mb-0">Daniel</h5>
-              <span>cognizant</span>
-              <p>"I love how smooth and rich this coffee tastes," or "This coffee has a great balance of acidity and
-                sweetness." Additionally, you could express your appreciation to the barista or the person who made the
-                coffee by saying "</p>
-            </div>
+<div class="back">
+  <app-search></app-search>
+  <app-notfound [visible]="!drink || !drink.length" resetLinkText="Go Back!"></app-notfound>
+  <ul>
+    <li *ngFor="let coffe of drink">
+      <a routerLink="/coffe/{{coffe.id}}">
+        <img [src]="coffe.imageUrl" [alt]="coffe.name" />
+        <div class="content">
+          <div class="name">
+            <b>{{coffe.name}}</b>
+          </div>
+          <div class="stars">
+            <star-rating [value]="coffe.stars" [totalstars]="5" checkedcolor="red" uncheckedcolor="white" size="25px"
+              [readonly]="true">
+            </star-rating>
+          </div>
+          <div class="price">
+            <span>
+              <b>{{coffe.price | currency}}</b>
+            </span>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center px-4">
-            <div class="user-image">
-              <img src="../../assets/robert.jpg" class="rounded-circle" width="80">
-            </div>
-            <div class="user-content">
-              <h5 class="mb-0">Damon</h5>
-              <span>Tata Motors</span>
-              <p>"The flavor was rich and complex, with hints of
-                chocolate and caramel. The aroma was equally delightful, with a warm, inviting scent that filled the
-                room.Thank you for making such a great coffee! There are coffe that eevryone should try.
-                "
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center px-4">
-            <div class="user-image">
-              <img src="../../assets/damon.jpg" class="rounded-circle" width="80">
-            </div>
-            <div class="user-content">
-              <h5 class="mb-0">Robert</h5>
-              <span>Cognizant</span>
-              <p>I could taste subtle hints of chocolate and caramel, which added to the complexity of the coffee.I love
-                how smooth and rich this coffee tastes," , and I would definitely
-                recommend it to anyone who loves a good cup of coffee, everyone must try the best taste of java.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="line"></div>
-    <section class="AboutUs">
-      <h2>About Us</h2> <br>
-      Welcome to our coffee website! Here you'll find all sorts of information about coffee, from its origins to the
-      best brewing methods and everything in between.
-      Our passion for coffee started many years ago when we discovered the amazing variety of flavors and aromas that
-      can be found in a simple cup of coffee. Since then, we've been exploring the world of coffee, trying different
-      blends and experimenting with various brewing techniques.
-      <br>
-    </section>
-    <div class="line"></div>
-    <footer class="mt-5">
-      <div class="copy"> &#169; JavaJunction LTD. &nbsp; All Rights Reserved. </div>
-    </footer>
-  </div>
+      </a>
+    </li>
+  </ul>
 </div>

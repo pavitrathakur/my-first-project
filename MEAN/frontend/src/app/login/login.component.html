@@ -1,36 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col md-6">
-      <div class="card">
-        <div class="text-center">
-          <h1>Login At Cognicaffe</h1>
-          <hr>
-        </div>
-        <form [formGroup]="loginForm">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label" formControlName="email">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1">
-            <br>
-            <span class="text-danger" *ngIf="email.errors?.['required'] && (email.touched || email.dirty)">Email is
-              required</span>
-            <span class="text-danger" *ngIf="email.errors?.['email'] && (email.touched || email.dirty)">Email is
-              invalid</span>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" formControName="Password" id="exampleInputPassword1">
-            <span class="text-danger"
-              *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">Password is required</span>
+<div class="main">
+  <div class="container">
+    <div class="details">
+      <app-title title="Login"></app-title>
 
-            <span class="text-danger"
-              *ngIf="password.errors?.['minlength'] && (password.touched || password.dirty)">Password Should be atleast
-              8 characters long</span>
-          </div>
-          <button type="submit" class="btn button">Login</button>
-        </form>
-        <br><br>
-        <a routerLink="/signup">Back To Signup</a>
-      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+        <text-input [control]="fc.email" [showErrorsWhen]="isSubmitted" type="email" label="Email">
+        </text-input>
+        <text-input [control]="fc.password" [showErrorsWhen]="isSubmitted" type="password" label="Password">
+        </text-input>
+        <default-button text="Login"></default-button>
+
+        <div class="register">
+          <b>New user? </b> &nbsp;
+          <a routerLink="/registerpage" [queryParams]="{returnUrl: returnUrl}">
+            RegisterHere
+          </a>
+        </div>
+      </form>
     </div>
   </div>
 </div>

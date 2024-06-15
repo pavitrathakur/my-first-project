@@ -1,159 +1,97 @@
-.welcome{
+.back{
   margin:0; //removes default margin
-  background-image:url("../../assets/img1.1.jpg");
-  background-size: cover;
+  background-size:cover;
   background-repeat: no-repeat;
   transition: 3s;
   animation-name: animate ;
   animation-direction: alternate-reverse;
-  animation-duration: 20s ;
+  animation-duration: 30s ;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite ;
   animation-play-state: running;
   animation-timing-function: ease-in-out;
+  width: auto;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   }
-  //This allows the element to make gradually.
+  //This allows the element to move gradually.
 @keyframes  animate{
     0%{
-      background-image: url(../../assets/img1.1.jpg);
-      
+      background-image: url(https://media.gettyimages.com/id/638172554/photo/woman-drinking-coffee-in-urban-cafe-while-looking-outside-sunny-reflections-in-window.jpg?s=2048x2048&w=gi&k=20&c=-T3f8Hqo_2FcSD3Tsyedw2tfl186NZvIhg7Iv8UOof4=);
+
     }
     20%{
-      background-image: url(../../assets/img2.jpeg);
+      background-image: url(https://media.gettyimages.com/id/859613042/photo/coffee-break.jpg?s=2048x2048&w=gi&k=20&c=5wIv8WIjSxRszkN_YLYm83rYW6lP5JYlidVP-drFz_k=);
     }
     40%{
-      background-image: url(../../assets/img3.jpeg);
+      background-image: url(https://media.gettyimages.com/id/1351374287/photo/woman-enjoying-cappuccino-in-a-cafe.jpg?s=2048x2048&w=gi&k=20&c=A2PHiZkBtLn5ToEFiwxUgpgTWN_n60VF0tQ0CYieNwc=);
     }
     60%{
-      background-image: url(../../assets/img4.jpg);
+      background-image: url(https://media.gettyimages.com/id/919384646/photo/man-taking-his-order-at-a-coffee-shop.jpg?s=2048x2048&w=gi&k=20&c=BtUN8sO8W_vzTRmLC0cJ1RUUcYtXH5bj8SkUfUYmQTo=);
     }
     80%{
-      background-image: url(../../assets/menserving.jpg);
+      background-image: url(https://media.gettyimages.com/id/1337396459/photo/two-young-women-sit-in-a-cafe-eating-and-chatting-while-having-fun-together.jpg?s=2048x2048&w=gi&k=20&c=Mj2Vl8mU1pkUvdlTTQMLsqgERCkz7G-9mQ2F0in-qD4=);
     }
     100%{
-      background-image: url(../../assets/img6.jpeg);
+      background-image: url(https://media.gettyimages.com/id/1091916996/photo/portrait-of-confident-female-owner-standing-at-entrance-of-deli.jpg?s=2048x2048&w=gi&k=20&c=x6pkwZw-jTH5hECSRMOpH-TPr9xou71qAK8qoLIFS30=);
     }
 }
-  /*will give us a scrolling context*/
-  .wrapper{     /*allows us to center the content*/
-    width: auto;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;  /*verticle scroll-bar */
-  }
-  /* hides scroll bar */
- .wrapper::-webkit-scrollbar {   
-   display: none; 
- }
-//  .coffee img{
-//   margin-left: 40px;
-//   margin-right: 40px;
-//  }
-.caption{
-  text-align: center;
-  cursor: pointer;
-  font-size:25px;
-  width: min-content;
+ /* hides scroll bar */
+ .back::-webkit-scrollbar {
+  display: none;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+li a {
+  height: 22.5rem;
+  width: 22.5rem;
+  border: 5px solid rgb(10, 10, 10);
+  border-radius: 3rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   color: white;
-  border-radius: 10px;
-  margin: 10px 10px;
-  
+  text-decoration: none;
 }
-.caption:hover{
 
-  transform:  scale(1.08);
-  background-color:rgb(41, 94, 4);
+li a:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+li a img {
+  object-fit: cover;
+  height: 14.5rem;
+}
+
+.content {
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  height: 7rem;
+  background-color:grey;
+}
+
+
+
+.stars {
+  margin-bottom: 0.2rem;
+}
+.product-item-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 
 }
-  .image{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; 
-  }
-  .background{
-    position: absolute;
-    height: 100%;
-    width: 101%;
-    object-fit: cover;
-  }
-  h3{
-    font-size: 8vw;
-    color: rgb(224, 213, 213);
-    margin-left: 50px;
-  }
-  h6{
-   padding-left:50px;
-   font-size: 6vw;
-  color:rgb(245, 239, 239);
-  }
-  .AboutUs{
-    font-size:1rem;
-    padding: 2rem;
-    background-color: #190404;
-    color: antiquewhite;   
-  }
-  .offer{
-    font-size: 4rem;
-    color: white;
-    text-shadow: 0 0 5px black;
-    margin-left: 20px;
-    margin-right: 30px;
-  }
-  h2{
-    text-align: center; 
-  }
-  .copy{
-    background-color: black;
-    text-align: center;
-    color: white;
-  }
-   .customers{
-    font-size: 50px;
-    color: white;
-    
-   }
-  .user-content p{
-    margin-top:5px;
-    font-size:12px;
-  }
-  h4{
-    color: white;
-    margin: 30px 30px;
-  }
-.item img{
-    width: 400px;
-    height: 250px;
-    object-fit: cover;
-    cursor: pointer;
-    transition:0.2s ease-in-out;
-    border-radius: 30px;
-}
-.item img:hover{
-    transform: scale(1.06);
-}
-.item button{
-    padding: 5px 10px;
-    border: none;
-    outline: none;
-    background-color: rgb(45, 2, 2);
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 20px;
-    margin: 0 0;
-    transition:0.2s all;
-    align-items: center;
-}
-.item button:hover{
-    transform:  scale(1.08);
-    background-color: rgb(1, 31, 1);
-}
-hr{
-    color: aliceblue;
-}
-.line{
-  height: 5px;
-  background-color: rgb(35, 60, 3);
+.price {
+  position: absolute;
 }
